@@ -1,6 +1,6 @@
 # Slack Bot That Says GitHub Opened Pull Requests
 
-This bot gets opened pull requests from your github repository and post the contents to   
+This bot gets opened pull requests from your github repository and post their contents to   
 you need golang develop environments.
 
 ## How to use
@@ -15,5 +15,5 @@ go build -o PullReqBot -ldflags "-X main.token=<your github api token> -X main.e
 $ ./PullReqBot
 ```
 
-### Auto execute
+### auto execute
 You can use jenkins or cron ... etc.
