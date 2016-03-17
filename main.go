@@ -23,14 +23,18 @@ type Repo struct {
 }
 
 type OpenedPullReq struct {
-	HtmlUrl string `json:"html_url"`
-	Title   string `json:"title"`
-	User    User   `json:"user"`
-	Repo    Repo   `json:"repo"`
+	HtmlUrl string      `json:"html_url"`
+	Title   string      `json:"title"`
+	User    User        `json:"user"`
+	Head    PullReqHead `json:"head"`
 }
 
 type User struct {
 	LoginName string `json:"login"`
+}
+
+type PullReqHead struct {
+	Repo Repo `json:"repo"`
 }
 
 type WebHookPostPayload struct {
@@ -121,16 +125,15 @@ func main() {
 
 	msg := ""
 	for _, pr := range allPR {
-
 		msg = msg + fmt.Sprintf("[\n"+
-			pr.Repo.Name+"\n"+
-			"url:%s\n"+
-			"title:%s\n"+
-			"user:%s\n"+
+			pr.Head.Repo.Name+"\n"+
+			"%s\n"+
+			"title: %s\n"+
+			"user: %s\n"+
 			"]\n",
 			pr.HtmlUrl,
 			pr.Title,
-			pr.User,
+			pr.User.LoginName,
 		)
 	}
 
