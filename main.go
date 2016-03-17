@@ -16,6 +16,7 @@ var (
 	endpoint string
 	username string
 	hookurl  string
+	channel  string
 )
 
 type Repo struct {
@@ -138,7 +139,7 @@ func main() {
 	}
 
 	var payload = &WebHookPostPayload{
-		Channel:   "#gazou-dev",
+		Channel:   channel,
 		Username:  "PullReqBot",
 		IconEmoji: ":ghost:",
 		Text:      msg,
