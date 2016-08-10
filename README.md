@@ -1,6 +1,6 @@
 # Slack Bot That Says GitHub Opened Pull Requests
 
-This bot gets opened pull requests from your github repository and post their contents to   
+This bot gets opened pull requests from your github repository and post their contents to slack.  
 you need golang develop environments.
 
 ## How to use
